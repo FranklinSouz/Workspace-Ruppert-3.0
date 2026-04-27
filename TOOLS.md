@@ -1,46 +1,49 @@
----
-summary: "Workspace template for TOOLS.md"
-read_when:
-  - Bootstrapping a workspace manually
----
-
 # TOOLS.md - Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## VPS Principal
+- **IP público:** 187.77.148.76
+- **OS:** Ubuntu 24.04 LTS
+- **Hostname:** srv1476751
+- **Tailscale IP:** 100.103.17.77
 
-## What Goes Here
+## Infraestrutura
+- **Reverse Proxy:** Traefik (Docker, host network, Let's Encrypt automático via `letsencrypt` certresolver)
+- **Containers ativos:** `cavegroup-web` (Nginx Alpine), `traefik-traefik-1`, `openclaw-ecf2-openclaw-1`
+- **Deploy de sites:** copiar HTML/CSS/JS para `/var/www/SITE/html/` → Traefik serve com HTTPS automático
 
-Things like:
+## Domínios & Sites
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+### cavegroup.com.br
+- **DNS:** Registro.br apontado para IP da VPS (já propagado)
+- **HTTPS:** ✅ Let's Encrypt via Traefik
+- **Compose:** `/opt/cavegroup-docker-compose.yml`
+- **Arquivos:** `/var/www/cavegroup/html/`
+- **Nginx conf:** `/var/www/cavegroup/nginx.conf` (porta 8088)
+- **Traefik rule:** `Host(cavegroup.com.br) || Host(www.cavegroup.com.br)`
+- Para publicar: copiar arquivo para `/var/www/cavegroup/html/` — imediato, sem restart
 
-## Examples
+## Gateway OpenClaw
+- **Bind:** loopback (`127.0.0.1:18789`)
+- **Auth token:** `38b9c5862184e465b05bb4cf7efb0bb016401113ce308838`
+- **Config:** `/root/.openclaw/openclaw.json`
+- **controlUi.allowInsecureAuth:** true
 
-```markdown
-### Cameras
+## Tailscale
+- VPS: `srv1476751` — `100.103.17.77`
+- Franklin Mac: `MacBook-Pro` — `100.125.240.118`
 
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
+## Pixel Agents Dashboard
+- Rodando em `http://100.103.17.77:5070` (Tailscale only)
+- Diretório: `/root/.openclaw/workspace/skills/openclaw-pixel-agents-dashboard/`
+- Start: `OPENCLAW_GATEWAY_TOKEN=38b9c5862184e465b05bb4cf7efb0bb016401113ce308838 npm start`
+- **Não persiste reboot** — sem systemd ainda
 
-### SSH
+## Stack de Desenvolvimento (Roberto Dev)
+- **Automações:** Make (Integromat), N8N
+- **No-code/Low-code:** Lovable, Webflow, Framer
+- **Landing Pages:** HTML/CSS/JS vanilla, React se necessário
+- **Tracking:** Meta Pixel, Google Tag Manager, GA4
 
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
+## GitHub
+- **Repo workspace:** `https://github.com/FranklinSouz/ruppert-workspace` (private)
+- **Repo landing pages:** `https://github.com/FranklinSouz/cave-ia` (public, GitHub Pages ativo)
