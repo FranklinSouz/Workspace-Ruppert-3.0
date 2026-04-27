@@ -1,61 +1,74 @@
 # MEMORY.md — Índice
 
-> Este arquivo é um índice. Conteúdo detalhado vive nos topic files.
-> Não duplicar aqui o que está nos topic files.
-
-## 📂 Topic Files
-
-| Arquivo | O que contém |
-|---------|-------------|
-| `memory/projects.md` | Projetos ativos e concluídos |
-| `memory/decisions.md` | Decisões permanentes com contexto |
-| `memory/lessons.md` | Lições aprendidas, erros, padrões |
-| `memory/people.md` | Equipe, parceiros, contatos |
-| `memory/pending.md` | Aguardando input |
-| `memory/feedback.md` | Feedbacks e padrões de preferência |
-| `memory/meta_token.md` | Token Meta Ads System User (AnaLizy) + contas acessíveis |
-| `memory/cave_clients.md` | Clientes ativos CAVE + alertas + IDs de contas Meta |
-| `memory/meta_campaign_structure.md` | Estrutura padrão de campanhas (CBO, nomenclatura, UTMs) |
-| `memory/cave_framework.md` | Framework E1/E2/E3 + Produtos CAVE |
-| `memory/YYYY-MM-DD.md` | Notas diárias (raw capture) |
-
-## 🔄 Ciclo de Memória
-
-```
-Sessão (conversa) → memory/YYYY-MM-DD.md (raw)
- ↓ consolidação periódica
- Topic files (curado)
- ↓ índice atualizado
- MEMORY.md (sumário)
-```
-
-## 📸 Estado Atual
-
-### Projetos Ativos
-- **Empresa de Tráfego Pago** — operação ativa, desafio de tocar em paralelo com outros projetos
-- **Veecler (joias)** — em construção / planejamento
-- **Jeecler (alto luxo)** — estabelecida, em expansão
-
-### Pendências
-- Definir local seguro para armazenar credenciais
-- Definir email próprio do Ruppert (quando necessário)
-- Backup da SSH key do Mac em local seguro
-
-### Decisões Recentes
-- Modelos: opus (estratégico), sonnet (geral), haiku (heartbeats) — ver `memory/decisions.md`
-- Memória semântica: Gemini embeddings configurado
-
-### Infraestrutura (VPS)
-- Servidor Hostinger Ubuntu 24.04 — hardening aplicado em 2026-03-10
-- UFW ativo (22/80/443), Fail2ban ativo, SSH key-only, dmPolicy=allowlist
+> Mapa de memória. Não duplica conteúdo — apenas referencia onde está cada coisa.
+> Único arquivo de memória sempre carregado na sessão.
 
 ---
 
-### Meta Ads
-- **Token:** System User AnaLizy (ID: 122094389534929192) — permanente, sem expiração
-- **Arquivo:** `memory/meta_token.md`
-- **17 contas acessíveis** — Kasa Marchi, Jucy Santos, Ventura Arq, Runemal, NPG, MDV, Casa Art, Franklin FS Tráfego
-- Token copiado para todos os workspaces: main, roberto_dev, rafaela, personal
+## Contexto
+
+| Arquivo | O que contém |
+|---------|-------------|
+| `memory/context/decisions.md` | Decisões permanentes e irreversíveis |
+| `memory/context/lessons.md` | Lições aprendidas, erros, padrões |
+| `memory/context/people.md` | Equipe, parceiros, contatos |
+| `memory/context/business-context.md` | Clientes CAVE, framework E1/E2/E3, produtos |
+
+## Projetos Ativos
+
+| Arquivo | Projeto |
+|---------|---------|
+| `memory/projects/cave-assessoria.md` | CAVE Assessoria — tráfego, FLG, operação |
+| `memory/projects/veecler.md` | Veecler — e-commerce de joias |
+| `memory/projects/jeecler.md` | Jeecler — expansão por franquias |
+| `memory/projects/ruppert-para-empresas.md` | Ruppert para Empresas — AI Agency |
+
+## Sessões (Diário)
+
+- `memory/sessions/YYYY-MM-DD.md` — notas diárias (raw capture por sessão)
+- Últimas: `memory/sessions/2026-04-24.md`, `memory/sessions/2026-04-10.md`
+
+## Integrações
+
+| Arquivo | O que contém |
+|---------|-------------|
+| `memory/integrations/meta-token.md` | Token Meta Ads System User (AnaLizy) + 17 contas |
+| `memory/integrations/thresholds.md` | Thresholds de alerta por cliente (CPL, CTR, ROAS) |
+| `memory/integrations/analizy-soul.md` | Identidade e alma da Ana Lizy (Head de Performance) |
+| `memory/integrations/analizy-identity.md` | IDENTITY.md da Ana Lizy |
+
+## Feedback
+
+- `memory/feedback/content.json` — tom, formato, estilo (approve/reject)
+- `memory/feedback/tasks.json` — abordagem operacional *(a criar)*
+- `memory/feedback/recommendations.json` — sugestões estratégicas *(a criar)*
+
+## Pendências
+
+- `memory/pending.md` — itens aguardando input do Franklin ou de terceiros
+
+---
+
+## Regras de Memória
+
+| O que é | Onde salvar |
+|---------|-------------|
+| Decisão permanente | `memory/context/decisions.md` |
+| Erro que não pode repetir | `memory/context/lessons.md` |
+| Status de projeto | `memory/projects/nome-do-projeto.md` |
+| O que aconteceu hoje | `memory/sessions/YYYY-MM-DD.md` |
+| Aguardando input | `memory/pending.md` |
+| Feedback de sugestão rejeitada | `memory/feedback/content.json` |
+
+## ⚠️ Regra INVIOLÁVEL — Pré-Compactação
+
+Antes de CADA compactação de contexto, extrair obrigatoriamente:
+1. Lições aprendidas → `memory/context/lessons.md`
+2. Decisões tomadas → `memory/context/decisions.md`
+3. Pendências abertas → `memory/pending.md`
+4. Notas da sessão → `memory/sessions/YYYY-MM-DD.md`
+
+**Se não extrair antes de compactar, o contexto se perde para sempre.**
 
 ---
 
